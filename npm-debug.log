@@ -57,15 +57,6 @@ silly cache add: name, spec, args [ 'mongoose', '2.4.8', [ 'mongoose', '2.4.8' ]
 verbose parsed url { pathname: '2.4.8', path: '2.4.8', href: '2.4.8' }
 verbose addNamed [ 'mongoose', '2.4.8' ]
 verbose addNamed [ '2.4.8', '2.4.8' ]
-verbose cache add [ 'socket.io@0.8.7', null ]
-silly cache add: name, spec, args [ undefined, 'socket.io@0.8.7', [ 'socket.io@0.8.7', null ] ]
-verbose parsed url { pathname: 'socket.io@0.8.7',
-verbose parsed url   path: 'socket.io@0.8.7',
-verbose parsed url   href: 'socket.io@0.8.7' }
-silly cache add: name, spec, args [ 'socket.io', '0.8.7', [ 'socket.io', '0.8.7' ] ]
-verbose parsed url { pathname: '0.8.7', path: '0.8.7', href: '0.8.7' }
-verbose addNamed [ 'socket.io', '0.8.7' ]
-verbose addNamed [ '0.8.7', '0.8.7' ]
 verbose raw, before any munging connect/1.8.5
 verbose url resolving [ 'https://registry.npmjs.org/', './connect/1.8.5' ]
 verbose url resolved https://registry.npmjs.org/connect/1.8.5
@@ -82,10 +73,15 @@ verbose raw, before any munging mongoose/2.4.8
 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose/2.4.8' ]
 verbose url resolved https://registry.npmjs.org/mongoose/2.4.8
 http GET https://registry.npmjs.org/mongoose/2.4.8
-verbose raw, before any munging socket.io/0.8.7
-verbose url resolving [ 'https://registry.npmjs.org/', './socket.io/0.8.7' ]
-verbose url resolved https://registry.npmjs.org/socket.io/0.8.7
-http GET https://registry.npmjs.org/socket.io/0.8.7
+verbose cache add [ 'socket.io@0.8.7', null ]
+silly cache add: name, spec, args [ undefined, 'socket.io@0.8.7', [ 'socket.io@0.8.7', null ] ]
+verbose parsed url { pathname: 'socket.io@0.8.7',
+verbose parsed url   path: 'socket.io@0.8.7',
+verbose parsed url   href: 'socket.io@0.8.7' }
+silly cache add: name, spec, args [ 'socket.io', '0.8.7', [ 'socket.io', '0.8.7' ] ]
+verbose parsed url { pathname: '0.8.7', path: '0.8.7', href: '0.8.7' }
+verbose addNamed [ 'socket.io', '0.8.7' ]
+verbose addNamed [ '0.8.7', '0.8.7' ]
 verbose cache add [ 'vows@0.5.x', null ]
 silly cache add: name, spec, args [ undefined, 'vows@0.5.x', [ 'vows@0.5.x', null ] ]
 verbose parsed url { pathname: 'vows@0.5.x',
@@ -112,6 +108,10 @@ verbose parsed url { pathname: '*', path: '*', href: '*' }
 verbose addNamed [ 'should', '*' ]
 verbose addNamed [ null, '' ]
 silly name, range, hasData [ 'should', '', false ]
+verbose raw, before any munging socket.io/0.8.7
+verbose url resolving [ 'https://registry.npmjs.org/', './socket.io/0.8.7' ]
+verbose url resolved https://registry.npmjs.org/socket.io/0.8.7
+http GET https://registry.npmjs.org/socket.io/0.8.7
 verbose raw, before any munging vows
 verbose url resolving [ 'https://registry.npmjs.org/', './vows' ]
 verbose url resolved https://registry.npmjs.org/vows
@@ -124,7 +124,7 @@ verbose raw, before any munging should
 verbose url resolving [ 'https://registry.npmjs.org/', './should' ]
 verbose url resolved https://registry.npmjs.org/should
 http GET https://registry.npmjs.org/should
-ERR! Error: failed to fetch from registry: connect/1.8.5
+ERR! Error: failed to fetch from registry: mongoose/2.4.8
 ERR!     at /usr/share/npm/lib/utils/npm-registry-client/get.js:139:12
 ERR!     at cb (/usr/share/npm/lib/utils/npm-registry-client/request.js:31:9)
 ERR!     at Request._callback (/usr/share/npm/lib/utils/npm-registry-client/request.js:136:18)
@@ -145,5 +145,5 @@ ERR! command "node" "/usr/bin/npm" "install"
 ERR! cwd /var/www/bus-rush
 ERR! node -v v0.6.12
 ERR! npm -v 1.1.4
-ERR! message failed to fetch from registry: connect/1.8.5
+ERR! message failed to fetch from registry: mongoose/2.4.8
 verbose exit [ 1, true ]
