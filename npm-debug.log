@@ -1,0 +1,149 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/bin/npm', 'install' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/cinergy/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+verbose caching /var/www/bus-rush/package.json
+verbose loadDefaults YOUR-PROJECT-NAME-HERE@0.0.1
+verbose readDependencies: using package.json deps
+verbose where, deps [ '/var/www/bus-rush',
+verbose where, deps   [ 'connect',
+verbose where, deps     'express',
+verbose where, deps     'jade',
+verbose where, deps     'mongoose',
+verbose where, deps     'socket.io',
+verbose where, deps     'vows',
+verbose where, deps     'mocha',
+verbose where, deps     'should' ] ]
+verbose from cache /var/www/bus-rush/package.json
+info preinstall YOUR-PROJECT-NAME-HERE@0.0.1
+verbose from cache /var/www/bus-rush/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'connect@1.8.5', null ]
+silly cache add: name, spec, args [ undefined, 'connect@1.8.5', [ 'connect@1.8.5', null ] ]
+verbose parsed url { pathname: 'connect@1.8.5',
+verbose parsed url   path: 'connect@1.8.5',
+verbose parsed url   href: 'connect@1.8.5' }
+silly cache add: name, spec, args [ 'connect', '1.8.5', [ 'connect', '1.8.5' ] ]
+verbose parsed url { pathname: '1.8.5', path: '1.8.5', href: '1.8.5' }
+verbose addNamed [ 'connect', '1.8.5' ]
+verbose addNamed [ '1.8.5', '1.8.5' ]
+verbose cache add [ 'express@2.5.2', null ]
+silly cache add: name, spec, args [ undefined, 'express@2.5.2', [ 'express@2.5.2', null ] ]
+verbose parsed url { pathname: 'express@2.5.2',
+verbose parsed url   path: 'express@2.5.2',
+verbose parsed url   href: 'express@2.5.2' }
+silly cache add: name, spec, args [ 'express', '2.5.2', [ 'express', '2.5.2' ] ]
+verbose parsed url { pathname: '2.5.2', path: '2.5.2', href: '2.5.2' }
+verbose addNamed [ 'express', '2.5.2' ]
+verbose addNamed [ '2.5.2', '2.5.2' ]
+verbose cache add [ 'jade@0.20.0', null ]
+silly cache add: name, spec, args [ undefined, 'jade@0.20.0', [ 'jade@0.20.0', null ] ]
+verbose parsed url { pathname: 'jade@0.20.0',
+verbose parsed url   path: 'jade@0.20.0',
+verbose parsed url   href: 'jade@0.20.0' }
+silly cache add: name, spec, args [ 'jade', '0.20.0', [ 'jade', '0.20.0' ] ]
+verbose parsed url { pathname: '0.20.0', path: '0.20.0', href: '0.20.0' }
+verbose addNamed [ 'jade', '0.20.0' ]
+verbose addNamed [ '0.20.0', '0.20.0' ]
+verbose cache add [ 'mongoose@2.4.8', null ]
+silly cache add: name, spec, args [ undefined, 'mongoose@2.4.8', [ 'mongoose@2.4.8', null ] ]
+verbose parsed url { pathname: 'mongoose@2.4.8',
+verbose parsed url   path: 'mongoose@2.4.8',
+verbose parsed url   href: 'mongoose@2.4.8' }
+silly cache add: name, spec, args [ 'mongoose', '2.4.8', [ 'mongoose', '2.4.8' ] ]
+verbose parsed url { pathname: '2.4.8', path: '2.4.8', href: '2.4.8' }
+verbose addNamed [ 'mongoose', '2.4.8' ]
+verbose addNamed [ '2.4.8', '2.4.8' ]
+verbose cache add [ 'socket.io@0.8.7', null ]
+silly cache add: name, spec, args [ undefined, 'socket.io@0.8.7', [ 'socket.io@0.8.7', null ] ]
+verbose parsed url { pathname: 'socket.io@0.8.7',
+verbose parsed url   path: 'socket.io@0.8.7',
+verbose parsed url   href: 'socket.io@0.8.7' }
+silly cache add: name, spec, args [ 'socket.io', '0.8.7', [ 'socket.io', '0.8.7' ] ]
+verbose parsed url { pathname: '0.8.7', path: '0.8.7', href: '0.8.7' }
+verbose addNamed [ 'socket.io', '0.8.7' ]
+verbose addNamed [ '0.8.7', '0.8.7' ]
+verbose raw, before any munging connect/1.8.5
+verbose url resolving [ 'https://registry.npmjs.org/', './connect/1.8.5' ]
+verbose url resolved https://registry.npmjs.org/connect/1.8.5
+http GET https://registry.npmjs.org/connect/1.8.5
+verbose raw, before any munging express/2.5.2
+verbose url resolving [ 'https://registry.npmjs.org/', './express/2.5.2' ]
+verbose url resolved https://registry.npmjs.org/express/2.5.2
+http GET https://registry.npmjs.org/express/2.5.2
+verbose raw, before any munging jade/0.20.0
+verbose url resolving [ 'https://registry.npmjs.org/', './jade/0.20.0' ]
+verbose url resolved https://registry.npmjs.org/jade/0.20.0
+http GET https://registry.npmjs.org/jade/0.20.0
+verbose raw, before any munging mongoose/2.4.8
+verbose url resolving [ 'https://registry.npmjs.org/', './mongoose/2.4.8' ]
+verbose url resolved https://registry.npmjs.org/mongoose/2.4.8
+http GET https://registry.npmjs.org/mongoose/2.4.8
+verbose raw, before any munging socket.io/0.8.7
+verbose url resolving [ 'https://registry.npmjs.org/', './socket.io/0.8.7' ]
+verbose url resolved https://registry.npmjs.org/socket.io/0.8.7
+http GET https://registry.npmjs.org/socket.io/0.8.7
+verbose cache add [ 'vows@0.5.x', null ]
+silly cache add: name, spec, args [ undefined, 'vows@0.5.x', [ 'vows@0.5.x', null ] ]
+verbose parsed url { pathname: 'vows@0.5.x',
+verbose parsed url   path: 'vows@0.5.x',
+verbose parsed url   href: 'vows@0.5.x' }
+silly cache add: name, spec, args [ 'vows', '0.5.x', [ 'vows', '0.5.x' ] ]
+verbose parsed url { pathname: '0.5.x', path: '0.5.x', href: '0.5.x' }
+verbose addNamed [ 'vows', '0.5.x' ]
+verbose addNamed [ null, '>=0.5.0- <0.6.0-' ]
+silly name, range, hasData [ 'vows', '>=0.5.0- <0.6.0-', false ]
+verbose cache add [ 'mocha@*', null ]
+silly cache add: name, spec, args [ undefined, 'mocha@*', [ 'mocha@*', null ] ]
+verbose parsed url { pathname: 'mocha@*', path: 'mocha@*', href: 'mocha@*' }
+silly cache add: name, spec, args [ 'mocha', '*', [ 'mocha', '*' ] ]
+verbose parsed url { pathname: '*', path: '*', href: '*' }
+verbose addNamed [ 'mocha', '*' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'mocha', '', false ]
+verbose cache add [ 'should@*', null ]
+silly cache add: name, spec, args [ undefined, 'should@*', [ 'should@*', null ] ]
+verbose parsed url { pathname: 'should@*', path: 'should@*', href: 'should@*' }
+silly cache add: name, spec, args [ 'should', '*', [ 'should', '*' ] ]
+verbose parsed url { pathname: '*', path: '*', href: '*' }
+verbose addNamed [ 'should', '*' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'should', '', false ]
+verbose raw, before any munging vows
+verbose url resolving [ 'https://registry.npmjs.org/', './vows' ]
+verbose url resolved https://registry.npmjs.org/vows
+http GET https://registry.npmjs.org/vows
+verbose raw, before any munging mocha
+verbose url resolving [ 'https://registry.npmjs.org/', './mocha' ]
+verbose url resolved https://registry.npmjs.org/mocha
+http GET https://registry.npmjs.org/mocha
+verbose raw, before any munging should
+verbose url resolving [ 'https://registry.npmjs.org/', './should' ]
+verbose url resolved https://registry.npmjs.org/should
+http GET https://registry.npmjs.org/should
+ERR! Error: failed to fetch from registry: connect/1.8.5
+ERR!     at /usr/share/npm/lib/utils/npm-registry-client/get.js:139:12
+ERR!     at cb (/usr/share/npm/lib/utils/npm-registry-client/request.js:31:9)
+ERR!     at Request._callback (/usr/share/npm/lib/utils/npm-registry-client/request.js:136:18)
+ERR!     at Request.callback (/usr/lib/nodejs/request/main.js:119:22)
+ERR!     at Request.<anonymous> (/usr/lib/nodejs/request/main.js:212:58)
+ERR!     at Request.emit (events.js:88:20)
+ERR!     at ClientRequest.<anonymous> (/usr/lib/nodejs/request/main.js:412:12)
+ERR!     at ClientRequest.emit (events.js:67:17)
+ERR!     at HTTPParser.onIncoming (http.js:1261:11)
+ERR!     at HTTPParser.onHeadersComplete (http.js:102:31)
+ERR! You may report this log at:
+ERR!     <http://bugs.debian.org/npm>
+ERR! or use
+ERR!     reportbug --attach /var/www/bus-rush/npm-debug.log npm
+ERR! 
+ERR! System Linux 3.2.0-36-generic
+ERR! command "node" "/usr/bin/npm" "install"
+ERR! cwd /var/www/bus-rush
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! message failed to fetch from registry: connect/1.8.5
+verbose exit [ 1, true ]
