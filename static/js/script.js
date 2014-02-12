@@ -39,7 +39,7 @@ $(document).ready(function () {
     });
 
     socket.on('total_bus_joins_from_server', function(totalBusJoins) {
-        console.log(totalBusJoins);
+        //console.log(totalBusJoins);
         $('#totalJoins').html(totalBusJoins);
     });
 

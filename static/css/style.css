@@ -192,18 +192,10 @@ textarea {
 
 body {
     text-align: center;
-    /*font-family: 'Strait', sans-serif;*/
+    font-family: 'Strait', sans-serif;
     /*font-family: 'Inconsolata', cursive;*/
-    font-family: 'Julius Sans One', sans-serif;
+    /*font-family: 'Julius Sans One', sans-serif;*/
     margin: 0;
-}
-
-div {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
 }
 
 p#countdown {
