@@ -1,7 +1,7 @@
 {
-  "name": "YOUR-PROJECT-NAME-HERE",
-  "description": "YOUR PROJECT DESCRIPTION HERE",
-  "author": "YOUR NAME <your@emailaddress.com>",
+  "name": "bus-rush",
+  "description": "Countdown the next bus-connection from seerose to bürkliplatz",
+  "author": "renato.hotz@gmail.com>",
   "version": "0.0.1",
   "dependencies": {
     "connect": "1.8.5",

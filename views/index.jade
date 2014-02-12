@@ -1,6 +1,11 @@
 extends layout
 
 block content
-	div
-		a(id='sender')='Send a Message'
-		ul(id='receiver')
+    div
+        p(id='countdown', class='easy')='loading'
+        p(class="info")
+            span(id="departureTime")
+            span=' Seerose -> Bürkliplatz'
+
+        a(id='join', class="join", href='#')='Auf den will ich auch!'
+            span(id='totalJoins')='0'

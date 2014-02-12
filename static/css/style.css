@@ -190,6 +190,80 @@ textarea {
     /* Style adjustments for viewports that meet the condition */
 }
 
+body {
+    text-align: center;
+    /*font-family: 'Strait', sans-serif;*/
+    /*font-family: 'Inconsolata', cursive;*/
+    font-family: 'Julius Sans One', sans-serif;
+    margin: 0;
+}
+
+div {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+p#countdown {
+    margin-bottom: 0;
+    line-height: 1.0;
+}
+
+p.info {
+    text-align: center;
+    color: lightgrey;
+    margin-top: 0;
+}
+
+.join {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: lightgrey;
+    text-decoration: none;
+}
+.join:hover {
+    color: green;
+}
+
+.join span {
+    color: green;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.hurry {
+    color: red;
+}
+
+.intermediate {
+    color: orange;
+}
+
+.easy {
+    color: green;
+}
+
+@media only screen and (max-width: 767px) {
+    p#countdown {
+        font-size: 5em;
+    }
+    p.info {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    p#countdown {
+        font-size: 10em;
+    }
+    p.info {
+        font-size: 2em;
+    }
+}
+
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
