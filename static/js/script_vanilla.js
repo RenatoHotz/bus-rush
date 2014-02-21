@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         countdownInterval = setInterval(function() {
             actualTime = new Date().getTime() / 1000;
 
-            document.querySelector('#debug').innerHTML = actualTime + '-' + compareTime + '=' + (actualTime - compareTime);
+            document.querySelector('#debug').innerHTML += (actualTime - compareTime) + ' - ';
 
-            if (actualTime - compareTime > 2000) {
+            if (actualTime - compareTime > 2) {
                 socket.emit('request_departures_from_client');
                 clearInterval(countdownInterval);
                 countdownEl.innerHTML = 'loading';
