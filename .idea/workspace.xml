@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c72abd-d7f5-4495-873a-b928f64a2ddf" name="Default" comment="init">
+    <list default="true" id="a5c72abd-d7f5-4495-873a-b928f64a2ddf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/script_vanilla.js" afterPath="$PROJECT_DIR$/static/js/script_vanilla.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bus-rush.iws" />
@@ -37,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.3523256" vertical-offset="921" max-vertical-offset="4539">
+            <state line="72" column="0" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.0" vertical-offset="921" max-vertical-offset="4539">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -48,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script_vanilla.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="script_vanilla.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/script_vanilla.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="19" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1955">
+            <state line="66" column="12" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.5139535" vertical-offset="663" max-vertical-offset="1989">
               <folding />
             </state>
           </provider>
@@ -72,7 +71,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="47" selection-start="1000" selection-end="1012" vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="731">
+            <state line="27" column="16" selection-start="820" selection-end="820" vertical-scroll-proportion="-9.18" vertical-offset="0" max-vertical-offset="748">
               <folding />
             </state>
           </provider>
@@ -109,9 +108,9 @@
         <option value="$PROJECT_DIR$/static/js/script.js" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/static/js/script_vanilla.js" />
       </list>
     </option>
@@ -386,7 +385,11 @@
       <created>1392979655696</created>
       <updated>1392979655696</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="re-get data from server, when mobile awakes from idle">
+      <created>1393017963797</created>
+      <updated>1393017963797</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -426,7 +429,8 @@
     <MESSAGE value="add second departure time" />
     <MESSAGE value="switch to vanilla js" />
     <MESSAGE value="add cachebusting param" />
-    <option name="LAST_COMMIT_MESSAGE" value="add cachebusting param" />
+    <MESSAGE value="re-get data from server, when mobile awakes from idle" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-get data from server, when mobile awakes from idle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -524,12 +528,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.0" vertical-offset="921" max-vertical-offset="4539">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="47" selection-start="1000" selection-end="1012" vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="731">
+        <state line="27" column="16" selection-start="820" selection-end="820" vertical-scroll-proportion="-9.18" vertical-offset="0" max-vertical-offset="748">
           <folding />
         </state>
       </provider>
@@ -543,17 +556,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/script_vanilla.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="19" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1955">
+        <state line="66" column="12" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.5139535" vertical-offset="663" max-vertical-offset="1989">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.3523256" vertical-offset="921" max-vertical-offset="4539">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
