@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionNext = document.querySelector('#next'),
         departureTimeEl = document.querySelector('#departureTime'),
         departureTime2El = document.querySelector('#departureTime2'),
-        countdowntEl = document.querySelector('#countdown'),
-        countdownt2El = document.querySelector('#countdown2'),
-        countdownInterval;
+        countdownEl = document.querySelector('#countdown'),
+        countdown2El = document.querySelector('#countdown2'),
+        countdownInterval,
+        counter,
+        counter2;
 
     /**
      * join this departure
@@ -37,33 +39,56 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     socket.on('new_departure_time_from_server', function(data) {
         console.log(data);
-        var counter = data.departures[0].nextDepartureInSeconds;
-        var counter2 = data.departures[1].nextDepartureInSeconds;
+        counter = data.departures[0].nextDepartureInSeconds;
+        counter2 = data.departures[1].nextDepartureInSeconds;
 
         departureTimeEl.innerHTML = data.departures[0].nextDepartureInTimeformat.substr(0, 5);
         departureTime2El.innerHTML = data.departures[1].nextDepartureInTimeformat.substr(0, 5);
+        countdownEl.innerHTML = secondsToTimeformat(counter);
+        countdown2El.innerHTML = secondsToTimeformat(counter2);
+
+        startCountdown();
+    });
+
+    /**
+     * set the countdown interval
+     */
+    function startCountdown() {
+        var actualTime,
+            compareTime = new Date().getTime() / 1000;
 
         clearInterval(countdownInterval);
 
         // start countdown
-        countdownInterval = setInterval(function(e) {
+        countdownInterval = setInterval(function() {
+            actualTime = new Date().getTime() / 1000;
+
+            if (actualTime - compareTime > 2000) {
+                socket.emit('request_departures_from_client');
+                clearInterval(countdownInterval);
+                countdownEl.innerHTML = 'loading';
+                return;
+            }
+
+            compareTime = actualTime;
+
             if (counter > 0) {
                 counter = counter - 1;
                 counter2 = counter2 - 1;
             }
 
-            countdowntEl.innerHTML = secondsToTimeformat(counter);
-            countdownt2El.innerHTML = secondsToTimeformat(counter2);
+            countdownEl.innerHTML = secondsToTimeformat(counter);
+            countdown2El.innerHTML = secondsToTimeformat(counter2);
 
             if (counter < 180) {
-                countdowntEl.className = 'hurry';
+                countdownEl.className = 'hurry';
             } else if (counter < 360) {
-                countdowntEl.className = 'intermediate';
+                countdownEl.className = 'intermediate';
             } else {
-                countdowntEl.className = 'easy';
+                countdownEl.className = 'easy';
             }
         }, 1000);
-    });
+    }
 
     /**
      * update join count
@@ -72,12 +97,15 @@ document.addEventListener('DOMContentLoaded', function() {
         totalJoinsEl.innerHTML = totalBusJoins;
     });
 
+    /**
+     * creates time-formatted string from seconds
+     * @param {int} secs
+     * @returns {string}
+     */
     function secondsToTimeformat(secs) {
         var t = new Date(1970, 0, 1);
-
         t.setSeconds(secs);
 
         return t.toTimeString().substr(0, 8);
-    };
-
+    }
 });

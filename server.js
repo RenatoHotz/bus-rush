@@ -13,6 +13,7 @@ var connect = require('connect'),
     countdownInterval,
     totalConnections = 0,
     departures = [],
+    departuresJson,
     totalBusJoins = [],
     nextDeparture,
     nextDepartureAfter,
@@ -98,17 +99,19 @@ io.sockets.on('connection', function(socket) {
         }
     });
 
+    socket.on('request_departures_from_client', function() {
+        emitDepartures(this);
+    });
+
     socket.on('disconnect', function() {
         totalConnections -= 1;
         console.log('Client Disconnected. ' + totalConnections + ' clients left');
     });
-
-    function emitTotalBusJoins() {
-        socket.broadcast.emit('total_bus_joins_from_server', totalBusJoins.length);
-        socket.emit('total_bus_joins_from_server', totalBusJoins.length);
-    }
 });
 
+function emitTotalBusJoins() {
+    io.sockets.in('room').emit('total_bus_joins_from_server', totalBusJoins.length);
+}
 
 function loadDepartures() {
     var req = http.request(httpReqOptions, function(res) {
@@ -141,27 +144,19 @@ function loadDepartures() {
     req.end();
 }
 
-function emitDepartures() {
-    io.sockets.in('room').emit('new_departure_time_from_server',
-        {
-            "departures": [
-                {
-                    "nextDepartureInSeconds": nextDepartureInSeconds,
-                    "nextDepartureInTimeformat": nextDeparture.toLocaleTimeString()
-                },
-                {
-                    "nextDepartureInSeconds": nextDepartureAfterInSeconds,
-                    "nextDepartureInTimeformat": nextDepartureAfter.toLocaleTimeString()
-                }
-            ]
-        }
-    );
+function emitDepartures(socket) {
+    if (socket) {
+        socket.emit('new_departure_time_from_server', getDeparturesJson());
+    } else {
+        io.sockets.in('room').emit('new_departure_time_from_server', getDeparturesJson());
+    }
 }
 
 function startCountdown() {
     var curTime = new Date();
 
     totalBusJoins = [];
+    emitTotalBusJoins();
 
     if (countdownInterval) {
         clearInterval(countdownInterval);
@@ -178,7 +173,7 @@ function startCountdown() {
 
             emitDepartures();
 
-            countdownInterval = setInterval(function(e) {
+            countdownInterval = setInterval(function() {
                 console.log(nextDepartureInSeconds);
                 if (nextDepartureInSeconds === 0) {
                     console.log('NEXT DEPARTURE');
@@ -202,6 +197,20 @@ function startCountdown() {
     }
 }
 
+function getDeparturesJson() {
+    return {
+        "departures": [
+            {
+                "nextDepartureInSeconds": nextDepartureInSeconds,
+                "nextDepartureInTimeformat": nextDeparture.toLocaleTimeString()
+            },
+            {
+                "nextDepartureInSeconds": nextDepartureAfterInSeconds,
+                "nextDepartureInTimeformat": nextDepartureAfter.toLocaleTimeString()
+            }
+        ]
+    };
+}
 
 ///////////////////////////////////////////
 //              Routes                   //
@@ -215,7 +224,7 @@ server.get('/', function (req, res) {
             title: 'Bus Rush',
             description: 'Your next bus is departing in...',
             author: 'Renato Hotz',
-            analyticssiteid: 'XXXXXXX'
+            analyticssiteid: 'UA-7063944-1'
         }
     });
 });
