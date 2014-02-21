@@ -88,26 +88,6 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
    Helper classes
    ========================================================================== */
 
@@ -181,14 +161,8 @@ textarea {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Custom styles
    ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
 
 body {
     text-align: center;
@@ -198,15 +172,48 @@ body {
     margin: 0;
 }
 
-p#countdown {
-    margin-bottom: 0;
+h1 {
+    font-size: 1.3em;
+    color: #ccc;
+}
+
+p {
+    margin: 0;
+}
+
+.container {
+    margin-top: 10%;
+}
+
+#countdown {
+    font-size: 5em;
+    margin: 0 0 0 0;
     line-height: 1.0;
 }
 
-p.info {
+#countdown2 {
+    font-size: 3.7em;
+    margin: 0 0 0 0;
+    line-height: 1.1;
+    color: #8c8c8c;
+}
+
+.time {
     text-align: center;
-    color: lightgrey;
-    margin-top: 0;
+    font-size: 2em;
+    color: #6d6d6d;
+}
+
+.more {
+    display: block;
+    font-size: 6em;
+    color: #acacac;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#next {
+    /*display: none;*/
 }
 
 .join {
@@ -216,6 +223,7 @@ p.info {
     color: lightgrey;
     text-decoration: none;
 }
+
 .join:hover {
     color: green;
 }
@@ -238,94 +246,29 @@ p.info {
     color: green;
 }
 
-@media only screen and (max-width: 767px) {
-    p#countdown {
-        font-size: 5em;
-    }
-    p.info {
-        font-size: 1em;
-    }
-}
-
-@media only screen and (min-width: 767px) {
-    p#countdown {
-        font-size: 10em;
-    }
-    p.info {
-        font-size: 2em;
-    }
-}
-
-@media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
+   Media Queries - override mobile-first styles
    ========================================================================== */
 
-@media print {
-    * {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
-        box-shadow: none !important;
-        text-shadow: none !important;
+@media only screen and (min-width: 35em) {
+    h1 {
+        font-size: 2em;
     }
 
-    a,
-    a:visited {
-        text-decoration: underline;
+    #countdown {
+        font-size: 10em;
     }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
+    #countdown2 {
+        font-size: 6.6em;
+        line-height: 1.1;
     }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
+    .time {
+        font-size: 2.5em;
     }
 
-    /*
-     * Don't show links for images, or javascript/internal links
-     */
-
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    thead {
-        display: table-header-group; /* h5bp.com/t */
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
+    .more {
+        font-size: 7em;
     }
 }

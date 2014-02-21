@@ -5,24 +5,34 @@ $(document).ready(function () {
     var socket = io.connect(),
         countdownInterval;
 
-    $('#join').bind('click', function() {
+    $('#join').on('click', function() {
         socket.emit('join_the_bus_from_client');
     });
 
-    socket.on('new_departure_time_from_server', function(data) {
-        var counter = data.nextDepartureInSeconds;
+    $('.more').on('click', function() {
+        $(this).html('-')
+        $('#next').toggle();
+    });
 
-        $('#departureTime').text(data.nextDepartureInTimeformat.substr(0, 5));
+    socket.on('new_departure_time_from_server', function(data) {
+        console.log(data);
+        var counter = data.departures[0].nextDepartureInSeconds;
+        var counter2 = data.departures[1].nextDepartureInSeconds;
+
+        $('#departureTime').text(data.departures[0].nextDepartureInTimeformat.substr(0, 5));
+        $('#departureTime2').text(data.departures[1].nextDepartureInTimeformat.substr(0, 5));
 
         clearInterval(countdownInterval);
 
         countdownInterval = setInterval(function(e) {
             if (counter > 0) {
                 counter = counter - 1;
+                counter2 = counter2 - 1;
             }
             //console.log(counter);
 
             $('#countdown').text(secondsToTimeformat(counter));
+            $('#countdown2').text(secondsToTimeformat(counter2));
 
             if (counter < 180) {
                 $('#countdown').attr('class', 'hurry');

@@ -1,3 +1,8 @@
+/*
+ * set timezone for heroku-hosting:
+ * heroku config:add TZ=Europe/Berlin
+ */
+
 //setup Dependencies
 var connect = require('connect'),
     express = require('express'),
@@ -9,12 +14,14 @@ var connect = require('connect'),
     totalConnections = 0,
     departures = [],
     totalBusJoins = [],
-    nextDepartureInSeconds,
     nextDeparture,
+    nextDepartureAfter,
+    nextDepartureInSeconds,
+    nextDepartureAfterInSeconds,
     httpReqOptions = {
         host: 'transport.opendata.ch',
         port: 80,
-        path: '/v1/connections?from=Zuerich%20Seerose&to=Zuerich%20Buerkliplatz&direct=1&transportations[]=bus&fields[]=connections/from/departure',
+        path: '/v1/connections?from=Zuerich%20Seerose&to=Zuerich%20Buerkliplatz&direct=1&transportations[]=bus&fields[]=connections/from/departure&limit=5',
         method: 'GET'
     };
 
@@ -72,7 +79,7 @@ io.sockets.on('connection', function(socket) {
     socket.join('room');
 
     if (departures.length) {
-        io.sockets.in('room').emit('new_departure_time_from_server', { "nextDepartureInSeconds": nextDepartureInSeconds, "nextDepartureInTimeformat": nextDeparture.toLocaleTimeString() });
+        emitDepartures();
     } else {
         loadDepartures();
     }
@@ -134,6 +141,23 @@ function loadDepartures() {
     req.end();
 }
 
+function emitDepartures() {
+    io.sockets.in('room').emit('new_departure_time_from_server',
+        {
+            "departures": [
+                {
+                    "nextDepartureInSeconds": nextDepartureInSeconds,
+                    "nextDepartureInTimeformat": nextDeparture.toLocaleTimeString()
+                },
+                {
+                    "nextDepartureInSeconds": nextDepartureAfterInSeconds,
+                    "nextDepartureInTimeformat": nextDepartureAfter.toLocaleTimeString()
+                }
+            ]
+        }
+    );
+}
+
 function startCountdown() {
     var curTime = new Date();
 
@@ -145,11 +169,14 @@ function startCountdown() {
 
     for (var i in departures) {
         console.log(curTime + ' / ' + new Date(departures[i]));
+
         if (curTime < new Date(departures[i])) {
             nextDeparture = new Date(departures[i]);
             nextDepartureInSeconds = Math.floor((nextDeparture.getTime() - curTime.getTime()) / 1000);
+            nextDepartureAfter = new Date(departures[parseInt(i) + 1]);
+            nextDepartureAfterInSeconds = Math.floor((nextDepartureAfter.getTime() - curTime.getTime()) / 1000);
 
-            io.sockets.in('room').emit('new_departure_time_from_server', { "nextDepartureInSeconds": nextDepartureInSeconds, "nextDepartureInTimeformat": nextDeparture.toLocaleTimeString() });
+            emitDepartures();
 
             countdownInterval = setInterval(function(e) {
                 console.log(nextDepartureInSeconds);
@@ -158,12 +185,13 @@ function startCountdown() {
                     startCountdown();
                 } else {
                     nextDepartureInSeconds -= 1;
+                    nextDepartureAfterInSeconds -=1;
                 }
             }, 1000);
 
             return 2;
         } else {
-            if (i == (departures.length -1)) {
+            if (i == (departures.length -2)) {
                 if (totalConnections > 0) {
                     loadDepartures();
                 } else {
