@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * toggle next departure
      */
-    document.querySelector('.more').addEventListener('click', function() {
+    document.querySelector('.more').addEventListener('click', function(e) {
+        e.preventDefault();
+
         if (sectionNext.classList.contains('invisible')) {
             this.innerHTML = '-';
         } else {

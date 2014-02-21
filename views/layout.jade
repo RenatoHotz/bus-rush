@@ -16,7 +16,7 @@ html.no-js(lang='en')
         meta(name="author", content=author)
         meta(name="viewport", content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Strait')
-        link(rel='stylesheet', href='/css/style.css')
+        link(rel='stylesheet', href='/css/style.css?v=0.1')
         //-script(src='js/libs/modernizr-2.0.6.min.js')
     body
         block header
@@ -25,7 +25,7 @@ html.no-js(lang='en')
 
         block footer
             footer
-                script(defer, src='/js/script_vanilla.js')
+                script(defer, src='/js/script_vanilla.js?v=0.1')
                 script(defer, src='/socket.io/socket.io.js')
                 script
                     var _gaq=[['_setAccount', 'UA-7063944-1'], ['_trackPageview'], ['_trackPageLoadTime']];
