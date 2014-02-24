@@ -1,7 +1,4 @@
-/*
- * set timezone for heroku-hosting:
- * heroku config:add TZ=Europe/Berlin
- */
+require('newrelic');
 
 //setup Dependencies
 var connect = require('connect'),
