@@ -108,4 +108,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         return t.toTimeString().substr(0, 8);
     }
+
+
+
+
+
+
+    socket.on('connect', function(data) {
+        console.log(data + 'fasdf       ');
+    });
 });
