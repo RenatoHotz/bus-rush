@@ -28,7 +28,7 @@ server.configure(function() {
     server.use(connect.bodyParser());
     //server.use(express.cookieParser());
     //server.use(express.session({ secret: "shhhhhhhhh!"}));
-    server.use(express.static(__dirname + '/static'));
+    server.use(express.static(__dirname));
     server.use(server.router);
 });
 
