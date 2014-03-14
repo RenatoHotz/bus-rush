@@ -23,24 +23,36 @@ var connect = require('connect'),
     };
 
 server.configure(function() {
-    //server.set('views', __dirname);
-    //server.set('view options', { layout: false });
+    server.set('views', __dirname + '/views');
+    server.set('view options', { layout: false });
     server.use(connect.bodyParser());
-    //server.use(express.cookieParser());
-    //server.use(express.session({ secret: "shhhhhhhhh!"}));
-    server.use(express.static(__dirname));
+    server.use(express.cookieParser());
+    server.use(express.session({ secret: "shhhhhhhhh!"}));
+    server.use(connect.static(__dirname + '/static'));
     server.use(server.router);
 });
 
 //setup the errors
 server.error(function(err, req, res, next) {
     if (err instanceof NotFound) {
-        //res.status(404);
-        res.sendfile('404.html', {root: __dirname});
+        res.render('404.jade', {
+            locals: {
+                title: '404 - Not Found',
+                description: '',
+                author: '',
+                analyticssiteid: 'XXXXXXX'
+            },
+            status: 404
+        });
     } else {
-        console.log(err);
-        //res.status(500);
-        res.sendfile('500.html', {root: __dirname});
+        res.render('500.jade', {
+            locals: {
+                title: 'The Server Encountered an Error',
+                description: '',
+                author: '',
+                analyticssiteid: 'XXXXXXX',
+                error: err
+        }, status: 500 });
     }
 });
 
@@ -200,10 +212,19 @@ function getDeparturesJson() {
 //              Routes                   //
 ///////////////////////////////////////////
 
-//Index page
+/////// ADD ALL YOUR ROUTES HERE  /////////
+
 server.get('/', function (req, res) {
-    res.sendfile('index.html', {root:__dirname});
+    res.render('index.jade', {
+        locals: {
+            title: 'Bus Rush',
+            description: 'Your next bus is departing in...',
+            author: 'Renato Hotz',
+            analyticssiteid: 'UA-7063944-1'
+        }
+    });
 });
+
 
 //A Route for Creating a 500 Error (Useful to keep around)
 server.get('/500', function (req, res) {

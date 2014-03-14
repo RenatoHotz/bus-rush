@@ -19,4 +19,6 @@
         Renato Hotz
     </author>
 
+    <!-- Include the native browser plugin -->
+    <gap:plugin name="org.apache.cordova.InAppBrowser" />
 </widget>
