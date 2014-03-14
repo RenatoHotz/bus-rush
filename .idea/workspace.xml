@@ -363,7 +363,11 @@
       <created>1394817192278</created>
       <updated>1394817192278</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="get clientside socket.io script by path">
+      <created>1394817286588</created>
+      <updated>1394817286588</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -411,7 +415,8 @@
     <MESSAGE value="replace .jade templates with static .html files" />
     <MESSAGE value="add phonegap config.xml" />
     <MESSAGE value="make static content accessible" />
-    <option name="LAST_COMMIT_MESSAGE" value="make static content accessible" />
+    <MESSAGE value="get clientside socket.io script by path" />
+    <option name="LAST_COMMIT_MESSAGE" value="get clientside socket.io script by path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

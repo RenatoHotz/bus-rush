@@ -6,9 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="description" content="Your next bus is departing in..." />
         <meta name="author" content="Renato Hotz" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Strait" />
-        <link rel="stylesheet" href="/css/style.css?v=0.1" />
+        <link rel="stylesheet" href="static/css/style.css?v=0.1" />
     </head>
     <body>
         <div class="container">
@@ -26,9 +27,8 @@
             </div>
             <a id="join" href="#" class="join">Auf den will ich auch!<span id="totalJoins">0</span></a>
         </div>
-
-        <script defer src="/socket.io/socket.io.js"></script>
-        <script defer src="/js/script_vanilla.js?v=0.1"></script>
+        <script defer src="http://bus-rush.renatohotz.ch/socket.io/socket.io.js"></script>
+        <script defer src="static/js/script_vanilla.js?v=0.1"></script>
         <script>
             var _gaq = [
                 ['_setAccount', 'UA-7063944-1'],
