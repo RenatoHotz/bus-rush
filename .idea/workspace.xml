@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c72abd-d7f5-4495-873a-b928f64a2ddf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/404.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/500.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="DELETED" beforePath="W:\bus-rush\views\404.jade" afterPath="" />
-      <change type="DELETED" beforePath="W:\bus-rush\views\500.jade" afterPath="" />
-      <change type="DELETED" beforePath="W:\bus-rush\views\index.jade" afterPath="" />
-      <change type="DELETED" beforePath="W:\bus-rush\views\layout.jade" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bus-rush.iws" />
@@ -61,10 +54,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="496" selection-end="496" vertical-scroll-proportion="0.25453112" vertical-offset="0" max-vertical-offset="1269">
+            <state line="18" column="24" selection-start="490" selection-end="490" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="459">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="34" selection-start="439" selection-end="439" vertical-scroll-proportion="0.18378378" vertical-offset="0" max-vertical-offset="1295">
               <folding />
             </state>
           </provider>
@@ -73,13 +75,13 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="60" selection-start="530" selection-end="530" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1020">
+            <state line="6" column="42" selection-start="214" selection-end="246" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1020">
               <folding>
-                <marker date="1394055403584" expanded="true" signature="553:2179" placeholder="..." />
-                <marker date="1394055403584" expanded="true" signature="585:1172" placeholder="..." />
-                <marker date="1394055403584" expanded="true" signature="1865:2177" placeholder="..." />
-                <marker date="1394055403584" expanded="true" signature="2014:2170" placeholder="..." />
-                <marker date="1394055403584" expanded="true" signature="2073:2147" placeholder="{...}" />
+                <marker date="1394799624862" expanded="true" signature="553:2168" placeholder="..." />
+                <marker date="1394799624862" expanded="true" signature="585:1161" placeholder="..." />
+                <marker date="1394799624862" expanded="true" signature="1854:2166" placeholder="..." />
+                <marker date="1394799624862" expanded="true" signature="2003:2159" placeholder="..." />
+                <marker date="1394799624862" expanded="true" signature="2062:2136" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -111,12 +113,13 @@
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/newrelic.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/500.html" />
         <option value="$PROJECT_DIR$/404.html" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -294,13 +297,18 @@
       <created>1393278385720</created>
       <updated>1393278385720</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="replace .jade templates with static .html files">
+      <created>1394794062300</created>
+      <updated>1394794062300</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1456" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -316,7 +324,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -339,19 +346,13 @@
     <MESSAGE value="change debug output" />
     <MESSAGE value="remove debug output" />
     <MESSAGE value="add new relic script" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new relic script" />
+    <MESSAGE value="replace .jade templates with static .html files" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace .jade templates with static .html files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/newrelic/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717">
@@ -411,19 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="60" selection-start="530" selection-end="530" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1020">
-          <folding>
-            <marker date="1394055403584" expanded="true" signature="553:2179" placeholder="..." />
-            <marker date="1394055403584" expanded="true" signature="585:1172" placeholder="..." />
-            <marker date="1394055403584" expanded="true" signature="1865:2177" placeholder="..." />
-            <marker date="1394055403584" expanded="true" signature="2014:2170" placeholder="..." />
-            <marker date="1394055403584" expanded="true" signature="2073:2147" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1295">
@@ -461,7 +449,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="496" selection-end="496" vertical-scroll-proportion="0.25453112" vertical-offset="0" max-vertical-offset="1269">
+        <state line="18" column="24" selection-start="490" selection-end="490" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="214" selection-end="246" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1020">
+          <folding>
+            <marker date="1394799624862" expanded="true" signature="553:2168" placeholder="..." />
+            <marker date="1394799624862" expanded="true" signature="585:1161" placeholder="..." />
+            <marker date="1394799624862" expanded="true" signature="1854:2166" placeholder="..." />
+            <marker date="1394799624862" expanded="true" signature="2003:2159" placeholder="..." />
+            <marker date="1394799624862" expanded="true" signature="2062:2136" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="34" selection-start="439" selection-end="439" vertical-scroll-proportion="0.18378378" vertical-offset="0" max-vertical-offset="1295">
           <folding />
         </state>
       </provider>
