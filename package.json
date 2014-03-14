@@ -1,7 +1,7 @@
 {
     "name": "bus-rush",
-    "description": "Countdown the next bus-connection from seerose to bürkliplatz",
-    "author": "renato.hotz@gmail.com>",
+    "description": "Countdown the next bus-connection from Zürich Seerose to Bürkliplatz",
+    "author": "renato.hotz@gmail.com",
     "version": "0.0.1",
     "dependencies": {
         "connect": "1.8.5",
@@ -16,5 +16,7 @@
         "mocha": "*",
         "should": "*"
     },
-    "engine": "node >= 0.6.6"
+    "engines": {
+        "node": "0.10.x"
+    }
 }
