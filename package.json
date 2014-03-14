@@ -1,12 +1,11 @@
 {
     "name": "bus-rush",
-    "description": "Countdown the next bus-connection from seerose to bürkliplatz",
+    "description": "Countdown to the next bus-departure from seerose to bürkliplatz",
     "author": "renato.hotz@gmail.com>",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "dependencies": {
         "connect": "1.8.5",
         "express": "2.5.2",
-        "jade": "0.20.0",
         "mongoose": "2.4.8",
         "socket.io": "0.8.7",
         "newrelic": "1.3.2"
@@ -16,5 +15,7 @@
         "mocha": "*",
         "should": "*"
     },
-    "engine": "node >= 0.6.6"
+    "engines": {
+        "node": "0.10.x"
+    }
 }

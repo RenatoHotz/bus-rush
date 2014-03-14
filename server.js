@@ -10,7 +10,6 @@ var connect = require('connect'),
     countdownInterval,
     totalConnections = 0,
     departures = [],
-    departuresJson,
     totalBusJoins = [],
     nextDeparture,
     nextDepartureAfter,
@@ -24,36 +23,24 @@ var connect = require('connect'),
     };
 
 server.configure(function() {
-    server.set('views', __dirname + '/views');
-    server.set('view options', { layout: false });
+    //server.set('views', __dirname);
+    //server.set('view options', { layout: false });
     server.use(connect.bodyParser());
-    server.use(express.cookieParser());
-    server.use(express.session({ secret: "shhhhhhhhh!"}));
-    server.use(connect.static(__dirname + '/static'));
+    //server.use(express.cookieParser());
+    //server.use(express.session({ secret: "shhhhhhhhh!"}));
+    server.use(express.static(__dirname + '/static'));
     server.use(server.router);
 });
 
 //setup the errors
 server.error(function(err, req, res, next) {
     if (err instanceof NotFound) {
-        res.render('404.jade', {
-            locals: {
-                title: '404 - Not Found',
-                description: '',
-                author: '',
-                analyticssiteid: 'XXXXXXX'
-            },
-            status: 404
-        });
+        //res.status(404);
+        res.sendfile('404.html', {root: __dirname});
     } else {
-        res.render('500.jade', {
-            locals: {
-                title: 'The Server Encountered an Error',
-                description: '',
-                author: '',
-                analyticssiteid: 'XXXXXXX',
-                error: err
-        }, status: 500 });
+        console.log(err);
+        //res.status(500);
+        res.sendfile('500.html', {root: __dirname});
     }
 });
 
@@ -213,19 +200,10 @@ function getDeparturesJson() {
 //              Routes                   //
 ///////////////////////////////////////////
 
-/////// ADD ALL YOUR ROUTES HERE  /////////
-
+//Index page
 server.get('/', function (req, res) {
-    res.render('index.jade', {
-        locals: {
-            title: 'Bus Rush',
-            description: 'Your next bus is departing in...',
-            author: 'Renato Hotz',
-            analyticssiteid: 'UA-7063944-1'
-        }
-    });
+    res.sendfile('index.html', {root:__dirname});
 });
-
 
 //A Route for Creating a 500 Error (Useful to keep around)
 server.get('/500', function (req, res) {
