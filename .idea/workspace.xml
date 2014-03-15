@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c72abd-d7f5-4495-873a-b928f64a2ddf" name="Default" comment="merge conflicts">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.html" afterPath="$PROJECT_DIR$/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/500.html" afterPath="$PROJECT_DIR$/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/bus-rush.iml" afterPath="$PROJECT_DIR$/.idea/bus-rush.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+    <list default="true" id="a5c72abd-d7f5-4495-873a-b928f64a2ddf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bus-rush.iws" />
@@ -88,7 +77,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="67" selection-start="163" selection-end="163" vertical-scroll-proportion="0.06916192" vertical-offset="0" max-vertical-offset="1229">
+            <state line="5" column="55" selection-start="151" selection-end="151" vertical-scroll-proportion="0.06916192" vertical-offset="0" max-vertical-offset="1229">
               <folding />
             </state>
           </provider>
@@ -378,7 +367,11 @@
       <created>1394838295295</created>
       <updated>1394838295295</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="change cordova-src file">
+      <created>1394872242185</created>
+      <updated>1394872242185</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -426,7 +419,8 @@
     <MESSAGE value="minor fixes" />
     <MESSAGE value="remove chromeframe" />
     <MESSAGE value="merge conflicts" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge conflicts" />
+    <MESSAGE value="change cordova-src file" />
+    <option name="LAST_COMMIT_MESSAGE" value="change cordova-src file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -526,7 +520,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="67" selection-start="163" selection-end="163" vertical-scroll-proportion="0.06916192" vertical-offset="0" max-vertical-offset="1229">
+        <state line="5" column="55" selection-start="151" selection-end="151" vertical-scroll-proportion="0.06916192" vertical-offset="0" max-vertical-offset="1229">
           <folding />
         </state>
       </provider>
