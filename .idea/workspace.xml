@@ -68,7 +68,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="57" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="493">
+            <state line="22" column="57" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -77,7 +77,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="55" selection-start="151" selection-end="151" vertical-scroll-proportion="0.06916192" vertical-offset="0" max-vertical-offset="1229">
+            <state line="43" column="9" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.5947925" vertical-offset="0" max-vertical-offset="1229">
               <folding />
             </state>
           </provider>
@@ -371,7 +371,11 @@
       <created>1394872242185</created>
       <updated>1394872242185</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="remove cordova file">
+      <created>1394872548758</created>
+      <updated>1394872548758</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -420,7 +424,8 @@
     <MESSAGE value="remove chromeframe" />
     <MESSAGE value="merge conflicts" />
     <MESSAGE value="change cordova-src file" />
-    <option name="LAST_COMMIT_MESSAGE" value="change cordova-src file" />
+    <MESSAGE value="remove cordova file" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove cordova file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -520,7 +525,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="55" selection-start="151" selection-end="151" vertical-scroll-proportion="0.06916192" vertical-offset="0" max-vertical-offset="1229">
+        <state line="43" column="9" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.5947925" vertical-offset="0" max-vertical-offset="1229">
           <folding />
         </state>
       </provider>
