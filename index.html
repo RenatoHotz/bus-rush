@@ -1,20 +1,20 @@
-<!--
 <!DOCTYPE html>
 <html>
     <head>
-        <title>InAppBrowser.addEventListener Example</title>
+        <title>Bus-Rush App</title>
 
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
         <script type="text/javascript" charset="utf-8">
 
             // Wait for device API libraries to load
-            //
-            document.addEventListener("deviceready", onDeviceReady, false);
+            function onLoad() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
 
             // device APIs are available
-            //
             function onDeviceReady() {
-                var ref = window.open('http://apache.org', '_blank', 'location=yes');
+                // Now safe to use device APIs
+                var ref = window.open('http://bus-rush.renatohotz.ch', '_blank', 'location=no');
                 ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
                 ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
                 ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
@@ -23,40 +23,6 @@
 
         </script>
     </head>
-
-    <body>
-    </body>
-</html>
--->
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Device Ready Example</title>
-
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-        // Wait for device API libraries to load
-        //
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
-
-        // device APIs are available
-        //
-        function onDeviceReady() {
-            // Now safe to use device APIs
-            var ref = window.open('http://apache.org', '_blank', 'location=no');
-            ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-            ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-            ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-            ref.addEventListener('exit', function(event) { alert(event.type); });
-        }
-
-    </script>
-</head>
-<body onload="onLoad()">
-<p>Hallo TEST</p>
+    <body onload="onLoad()">
 </body>
 </html>
