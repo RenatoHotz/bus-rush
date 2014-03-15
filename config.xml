@@ -24,5 +24,6 @@
     <gap:plugin name="org.apache.cordova.InAppBrowser" />
 
     <!-- Include the native loading spinner plugin -->
-    <gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
+    <!--<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />-->
+    <gap:plugin name="it.mobimentum.phonegapspinnerplugin" />
 </widget>
