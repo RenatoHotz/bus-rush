@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c72abd-d7f5-4495-873a-b928f64a2ddf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -68,7 +69,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="50" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+            <state line="24" column="43" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
               <folding />
             </state>
           </provider>
@@ -77,7 +78,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="28" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.3458096" vertical-offset="0" max-vertical-offset="1229">
+            <state line="4" column="151" selection-start="221" selection-end="221" vertical-scroll-proportion="0.055329535" vertical-offset="0" max-vertical-offset="1229">
               <folding />
             </state>
           </provider>
@@ -373,7 +374,11 @@
       <created>1394877827728</created>
       <updated>1394877827728</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="load bus-rush url into the webview">
+      <created>1394878341498</created>
+      <updated>1394878341498</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -424,7 +429,8 @@
     <MESSAGE value="change cordova-src file" />
     <MESSAGE value="remove cordova file" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="load bus-rush url into the webview" />
+    <option name="LAST_COMMIT_MESSAGE" value="load bus-rush url into the webview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -505,13 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="50" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -522,9 +521,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="43" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="28" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.3458096" vertical-offset="0" max-vertical-offset="1229">
+        <state line="4" column="151" selection-start="221" selection-end="221" vertical-scroll-proportion="0.055329535" vertical-offset="0" max-vertical-offset="1229">
           <folding />
         </state>
       </provider>
