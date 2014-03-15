@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <preference name="phonegap-version" value="3.1.0" />
+    <preference name="phonegap-version" value="2.9.0" />
 
     <name>Bus Rush App</name>
 
@@ -20,9 +20,5 @@
     </author>
 
     <!-- Include the native browser plugin -->
-    <feature name="InAppBrowser">
-        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-    </feature>
-
     <gap:plugin name="org.apache.cordova.InAppBrowser" />
 </widget>
