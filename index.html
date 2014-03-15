@@ -16,7 +16,12 @@
             function onDeviceReady() {
                 // Now safe to use device APIs
                 var ref = window.open('http://bus-rush.renatohotz.ch', '_blank', 'location=no');
-                ref.addEventListener('loadstart', function(event) { spinnerplugin.show(); });
+                ref.addEventListener('loadstart', function(event) {
+                    spinnerplugin.show({
+                        overlay: true, // defaults to true
+                        timeout: 30    // defaults to 0 (no timeout)
+                    })
+                });
                 ref.addEventListener('loadstop', function(event) { spinnerplugin.hide(); });
                 //ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
                 //ref.addEventListener('exit', function(event) { alert(event.type); });
