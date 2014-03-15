@@ -20,5 +20,9 @@
     </author>
 
     <!-- Include the native browser plugin -->
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+
     <gap:plugin name="org.apache.cordova.InAppBrowser" />
 </widget>
