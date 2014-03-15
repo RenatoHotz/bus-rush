@@ -8,6 +8,7 @@
     <!-- versionCode is optional and Android only -->
 
     <preference name="phonegap-version" value="3.1.0" />
+    <preference name="EnableViewportScale" value="false" />
 
     <name>Bus Rush App</name>
 
