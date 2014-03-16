@@ -28,6 +28,7 @@ server.configure(function() {
     server.use(connect.bodyParser());
     server.use(express.cookieParser());
     server.use(express.session({ secret: "shhhhhhhhh!"}));
+    server.use(express.favicon(__dirname + '/static/images/favicon.ico'));
     server.use(connect.static(__dirname + '/static'));
     server.use(server.router);
 });
