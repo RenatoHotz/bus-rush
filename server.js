@@ -9,6 +9,14 @@ var connect = require('connect'),
     server = express.createServer(),
     countdownInterval,
     totalConnections = 0,
+    connections = [
+        {
+            'from': 'Zuerich%20Seerose',
+            'to': 'Zuerich%20Buerkliplatz',
+            'departures': [],
+            'status': 'pending'
+        }
+    ],
     departures = [],
     totalBusJoins = [],
     nextDeparture,
@@ -18,7 +26,7 @@ var connect = require('connect'),
     httpReqOptions = {
         host: 'transport.opendata.ch',
         port: 80,
-        path: '/v1/connections?from=Zuerich%20Seerose&to=Zuerich%20Buerkliplatz&direct=1&transportations[]=bus&fields[]=connections/from/departure&limit=5',
+        path: '/v1/connections?direct=1&transportations[]=bus&fields[]=connections/from/departure&limit=5',
         method: 'GET'
     };
 
@@ -96,6 +104,45 @@ io.sockets.on('connection', function(socket) {
         }
     });
 
+    socket.on('new_connection_request_from_client', function(connection) {
+        var connectionIndex = 0,
+            socket = this;
+        console.log('Getting new Connection Request: ' + connection.from + ' -> ' + connection.to);
+
+        if (typeof connection.from === 'string' && typeof connection.to === 'string') {
+            connectionIndex = getExistingConnectionIndex(connection);
+
+            if (connectionIndex === -1) {
+                connection.status = 'pending';
+                connectionIndex = connections.push(connection);
+
+                loadDepartures(connection.from, connection.to,
+                    function(apiResponseConnections) {
+                        //console.log('loaded: ' + from + ' / ' + to);
+                        for (var i in apiResponseConnections) {
+                            val = apiResponseConnections[i];
+                            //departures.push(val.from.departure);
+                            connections[connectionIndex].departures.push(
+                                {
+                                    "nextDepartureInSeconds": val.from.departures,
+                                    "nextDepartureInTimeformat": val.from.departures
+                                }
+                            );
+                        }
+                        connections[connectionIndex].status = 'ready';
+                        emitDepartures(socket);
+                    },
+                    function() {
+                        //connection.status = 'failed';
+                        connections.splice(connectionIndex, 1);
+                    }
+                );
+            } else {
+                emitDepartures(this);
+            }
+        }
+    });
+
     socket.on('request_departures_from_client', function() {
         emitDepartures(this);
     });
@@ -106,14 +153,44 @@ io.sockets.on('connection', function(socket) {
     });
 });
 
+/**
+ * check whether a requested connection already exists
+ * @param {object} connection {from: 'string', to: 'string'}
+ * @returns {int} index if exists -1 otherwise
+ */
+function getExistingConnectionIndex(connection) {
+    var totalConnections = connections.length;
+
+    for (var i = 0; i < totalConnections; i++) {
+        if (connections[i].from === connection.from && connections[i].to === connection.to) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+
 function emitTotalBusJoins() {
     io.sockets.in('room').emit('total_bus_joins_from_server', totalBusJoins.length);
 }
 
-function loadDepartures() {
+/**
+ * load departure times from API
+ * @param {string} from
+ * @param {string} to
+ * @param {function} onSuccess
+ * @param {function} onFailure
+ */
+function loadDepartures(from, to, onSuccess, onFailure) {
+    if (typeof from !== 'string' || typeof to !== 'string') {
+        throw new Error('loadDeparture error: from/to params have to be of type string!');
+    }
+
+    httpReqOptions.path += '&from=' + from + '&to=' + to;
+
     var req = http.request(httpReqOptions, function(res) {
         var jsonResponse;
-
         //console.log('STATUS: ' + res.statusCode);
         //console.log('HEADERS: ' + JSON.stringify(res.headers));
         res.setEncoding('utf8');
@@ -122,20 +199,16 @@ function loadDepartures() {
             var val;
 
             jsonResponse = JSON.parse(chunk);
-            departures = [];
-
-            for (var i in jsonResponse.connections) {
-                val = jsonResponse.connections[i];
-                departures.push(val.from.departure);
-            }
-            console.log(departures);
-
-            startCountdown();
+            //departures = [];
+            //console.log(departures);
+            onSuccess(jsonResponse.connections);
+            //startCountdown();
         });
     });
 
     req.on('error', function(e) {
         console.log('problem with request: ' + e.message);
+        onFailure();
     });
 
     req.end();
