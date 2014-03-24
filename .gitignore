@@ -1,4 +1,8 @@
-.idea/
+# php storm
+.idea
 
+# node modules
 node_modules
-newrelic_agent.log
+
+# logs
+*.log

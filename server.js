@@ -18,7 +18,7 @@ var connect = require('connect'),
     httpReqOptions = {
         host: 'transport.opendata.ch',
         port: 80,
-        path: '/v1/connections?from=Zuerich%20Seerose&to=Zuerich%20Buerkliplatz&direct=1&transportations[]=bus&fields[]=connections/from/departure&limit=5',
+        path: '/v1/connections?from=Zuerich%20Seerose&to=Zuerich%20Sukkulentensammlung&direct=1&transportations[]=bus&fields[]=connections/from/departure&limit=5',
         method: 'GET'
     };
 
