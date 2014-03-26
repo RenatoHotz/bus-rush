@@ -1,5 +1,20 @@
 require('newrelic');
 
+/**
+ * connections-format:
+ * connections = [
+ *    {
+ *      'from': 'Zuerich%20Seerose',
+ *      'to': 'Zuerich%20Buerkliplatz',
+ *      'departures': [],
+ *      'socketIds': [],
+ *      'countdown': 0,
+ *      'status': 'pending'
+ *    }
+ *  ]
+ */
+
+
 //setup Dependencies
 var connect = require('connect'),
     express = require('express'),
@@ -7,16 +22,10 @@ var connect = require('connect'),
     http = require("http"),
     port = (process.env.PORT || 8081),
     server = express.createServer(),
+    socketClients = [],
     countdownInterval,
     totalConnections = 0,
-    connections = [
-        {
-            'from': 'Zuerich%20Seerose',
-            'to': 'Zuerich%20Buerkliplatz',
-            'departures': [],
-            'status': 'pending'
-        }
-    ],
+    connections = [],
     departures = [],
     totalBusJoins = [],
     nextDeparture,
@@ -48,8 +57,8 @@ server.error(function(err, req, res, next) {
             locals: {
                 title: '404 - Not Found',
                 description: '',
-                author: '',
-                analyticssiteid: 'XXXXXXX'
+                author: 'Renato Hotz',
+                analyticssiteid: 'UA-7063944-1'
             },
             status: 404
         });
@@ -58,8 +67,8 @@ server.error(function(err, req, res, next) {
             locals: {
                 title: 'The Server Encountered an Error',
                 description: '',
-                author: '',
-                analyticssiteid: 'XXXXXXX',
+                author: 'Renato Hotz',
+                analyticssiteid: 'UA-7063944-1',
                 error: err
         }, status: 500 });
     }
@@ -79,11 +88,15 @@ startCountdown();
 */
 
 io.sockets.on('connection', function(socket) {
-    totalConnections += 1;
-    console.log('Client Nr. ' + totalConnections + ' Connected');
+    //totalConnections += 1;
+    //console.log('Client Nr. ' + totalConnections + ' Connected');
 
-    socket.join('room');
+    //socket.join('room');
 
+    socketClients[socket.id] = socket;
+    socketClients[15892009189250054] = socket;
+console.log(socketClients);
+    /*
     if (departures.length) {
         emitDepartures();
     } else {
@@ -91,7 +104,9 @@ io.sockets.on('connection', function(socket) {
     }
 
     emitTotalBusJoins();
+    */
 
+    /*
     socket.on('join_the_bus_from_client', function() {
         // only add, if the same socket id does not exist yet
         if (totalBusJoins.some(function(socketId, index, array) {
@@ -103,10 +118,32 @@ io.sockets.on('connection', function(socket) {
             emitTotalBusJoins();
         }
     });
+    */
 
     socket.on('new_connection_request_from_client', function(connection) {
         var connectionIndex = 0,
-            socket = this;
+            socket = this,
+            successCallback = function(apiResponseConnections) {
+                var val;
+
+                for (var i in apiResponseConnections) {
+                    val = apiResponseConnections[i];
+                    //departures.push(val.from.departure);
+                    connections[connectionIndex].departures.push(
+                        {
+                            "nextDepartureInSeconds": val.from.departures,
+                            "nextDepartureInTimeformat": val.from.departures
+                        }
+                    );
+                }
+                connections[connectionIndex].status = 'ready';
+                connections[connectionIndex].socketIds.push(socket.id);
+                emitDepartures(connections[connectionIndex].departures, connections[connectionIndex].socketIds);
+            },
+            errorCallback = function() {
+                connections.splice(connectionIndex, 1);
+            };
+
         console.log('Getting new Connection Request: ' + connection.from + ' -> ' + connection.to);
 
         if (typeof connection.from === 'string' && typeof connection.to === 'string') {
@@ -116,40 +153,40 @@ io.sockets.on('connection', function(socket) {
                 connection.status = 'pending';
                 connectionIndex = connections.push(connection);
 
-                loadDepartures(connection.from, connection.to,
-                    function(apiResponseConnections) {
-                        //console.log('loaded: ' + from + ' / ' + to);
-                        for (var i in apiResponseConnections) {
-                            val = apiResponseConnections[i];
-                            //departures.push(val.from.departure);
-                            connections[connectionIndex].departures.push(
-                                {
-                                    "nextDepartureInSeconds": val.from.departures,
-                                    "nextDepartureInTimeformat": val.from.departures
-                                }
-                            );
-                        }
-                        connections[connectionIndex].status = 'ready';
-                        emitDepartures(socket);
-                    },
-                    function() {
-                        //connection.status = 'failed';
-                        connections.splice(connectionIndex, 1);
-                    }
-                );
+                loadDepartures(connection.from, connection.to, successCallback, errorCallback);
             } else {
-                emitDepartures(this);
+                if (connections[connectionIndex].socketIds.indexOf(socket.id) === -1) {
+                    connections[connectionIndex].socketIds.push(socket.id);
+                }
+                emitDepartures(connections[connectionIndex].departures, connections[connectionIndex].socketIds);
             }
         }
     });
 
-    socket.on('request_departures_from_client', function() {
-        emitDepartures(this);
-    });
+    //socket.on('request_departures_from_client', function() {
+        //emitDepartures(this);
+    //});
 
+    /**
+     * disconnect a socket and remove its id from connections
+     */
     socket.on('disconnect', function() {
-        totalConnections -= 1;
-        console.log('Client Disconnected. ' + totalConnections + ' clients left');
+        var socketIds,
+            index;
+
+        delete socketClients[socket.id];
+
+        for (var i in connections) {
+            socketIds = connections[i].socketIds;
+            index = socketIds.indexOf(socket.id);
+
+            if (index !== -1) {
+                connections[i].socketIds.splice(index, 1);
+                break;
+            }
+        }
+        //totalConnections -= 1;
+        //console.log('Client Disconnected. ' + totalConnections + ' clients left');
     });
 });
 
@@ -170,19 +207,20 @@ function getExistingConnectionIndex(connection) {
     return -1;
 }
 
-
+/*
 function emitTotalBusJoins() {
     io.sockets.in('room').emit('total_bus_joins_from_server', totalBusJoins.length);
 }
+*/
 
 /**
  * load departure times from API
  * @param {string} from
  * @param {string} to
  * @param {function} onSuccess
- * @param {function} onFailure
+ * @param {function} onError
  */
-function loadDepartures(from, to, onSuccess, onFailure) {
+function loadDepartures(from, to, onSuccess, onError) {
     if (typeof from !== 'string' || typeof to !== 'string') {
         throw new Error('loadDeparture error: from/to params have to be of type string!');
     }
@@ -208,20 +246,27 @@ function loadDepartures(from, to, onSuccess, onFailure) {
 
     req.on('error', function(e) {
         console.log('problem with request: ' + e.message);
-        onFailure();
+        onError();
     });
 
     req.end();
 }
 
-function emitDepartures(socket) {
-    if (socket) {
-        socket.emit('new_departure_time_from_server', getDeparturesJson());
-    } else {
-        io.sockets.in('room').emit('new_departure_time_from_server', getDeparturesJson());
+/**
+ * emits departures to connected sockets
+ * @param {array} departures
+ * @param {array} socketIds
+ */
+function emitDepartures(departures, socketIds) {
+    var socketId;
+
+    for (var i = 0; i < socketIds.length; i++) {
+        socketId = socketIds[i];
+        socketClients[socketId].emit('new_departure_time_from_server', departures);
     }
 }
 
+/*
 function startCountdown() {
     var curTime = new Date();
 
@@ -266,7 +311,9 @@ function startCountdown() {
         }
     }
 }
+*/
 
+/*
 function getDeparturesJson() {
     return {
         "departures": [
@@ -281,6 +328,7 @@ function getDeparturesJson() {
         ]
     };
 }
+*/
 
 ///////////////////////////////////////////
 //              Routes                   //
