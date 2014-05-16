@@ -1,8 +1,10 @@
 # php storm
 .idea
+workspace.xml
 
 # node modules
 node_modules
 
 # logs
 *.log
+newrelic_agent.log
